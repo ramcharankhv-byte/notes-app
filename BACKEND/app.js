@@ -5,21 +5,13 @@ import noteRouter from "./routes/notes-routes.js";
 
 const app = express();
 
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN?.split(",") || "http://localhost:5173",
-    credentials: true,
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  }),
-);
-const cors = require("cors");
-
+// CORS FIX
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://notes-app-dun-seven.vercel.app"],

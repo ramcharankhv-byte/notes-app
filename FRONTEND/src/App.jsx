@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2, PlusCircle, Notebook } from 'lucide-react';
 
-const API_URL = 'http://localhost:3000/api/v1/notes';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/v1/notes';
 
 function App() {
   const [notes, setNotes] = useState([]);
